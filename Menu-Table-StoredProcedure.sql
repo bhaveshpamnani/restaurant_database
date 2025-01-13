@@ -1,0 +1,84 @@
+-- -- CREATE
+-- create PROCEDURE CreateMenu(
+--     @CategoryID BIGINT,
+--     @DishName NVARCHAR(255),
+--     @Description NVARCHAR(255),
+--     @Price DECIMAL(8, 2),
+--     @ImgURL NVARCHAR(255),
+--     @AvailabilityStatus BIT
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO Menu (CategoryID, DishName, Description, Price, ImgURL, AvailabilityStatus)
+--     VALUES (@CategoryID, @DishName, @Description, @Price, @ImgURL, @AvailabilityStatus);
+-- END;
+
+-- DBCC CHECKIDENT ('FeedBack', NORESEED);
+-- DBCC CHECKIDENT ('FeedBack', RESEED, 3);
+-- -- READ
+-- create PROCEDURE GetMenus
+-- AS
+-- BEGIN
+--     SELECT 
+--     [dbo].[Menu].MenuID,
+--     [dbo].[Menu].DishName,
+--     [dbo].[Category].CategoryName,
+--     [dbo].[Menu].CategoryID,
+--     [dbo].[Menu].[Description],
+--     [dbo].[Menu].AvailabilityStatus,
+--     [dbo].[Menu].ImgURL,
+--     [dbo].[Menu].Price
+--      FROM Menu
+--      LEFT OUTER JOIN
+--      [dbo].Category ON [dbo].[Menu].CategoryID = [dbo].[Category].CategoryID;
+-- END;
+-- Exec GetMenus
+
+-- -- READ BY ID
+-- create PROCEDURE GetMenuById(@MenuID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT 
+--     [dbo].[Menu].MenuID,
+--     [dbo].[Menu].DishName,
+--     [dbo].[Category].CategoryName,
+-- [dbo].[Menu].CategoryID,
+--     [dbo].[Menu].[Description],
+--     [dbo].[Menu].AvailabilityStatus,
+--     [dbo].[Menu].ImgURL,
+--     [dbo].[Menu].Price
+--      FROM Menu
+--      LEFT OUTER JOIN
+--      [dbo].Category ON [dbo].[Menu].CategoryID = [dbo].[Category].CategoryID
+--     WHERE MenuID = @MenuID;
+-- END;
+-- Exec GetMenuById 1
+
+-- -- UPDATE
+-- create PROCEDURE UpdateMenu(
+--     @MenuID BIGINT,
+--     @CategoryID BIGINT,
+--     @DishName NVARCHAR(255),
+--     @Description NVARCHAR(255),
+--     @Price DECIMAL(8, 2),
+--     @ImgURL NVARCHAR(255),
+--     @AvailabilityStatus BIT
+-- )
+-- AS
+-- BEGIN
+--     UPDATE Menu
+--     SET CategoryID = @CategoryID,
+--         DishName = @DishName,
+--         Description = @Description,
+--         Price = @Price,
+--         ImgURL = @ImgURL,
+--         AvailabilityStatus = @AvailabilityStatus
+--     WHERE MenuID = @MenuID;
+-- END;
+
+-- -- DELETE
+-- CREATE PROCEDURE DeleteMenu(@MenuID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM Menu WHERE MenuID = @MenuID;
+-- END;

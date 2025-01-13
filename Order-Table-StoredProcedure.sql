@@ -1,0 +1,66 @@
+-- -- CREATE
+-- Create PROCEDURE CreateOrder(
+--     @UserID BIGINT,
+--     @TableID BIGINT,
+--     @TotalAmount DECIMAL(8, 2),
+--     @PaymentStatus NVARCHAR(255),
+--     @OrderStatus NVARCHAR(255),
+--     @MenuID BIGINT,
+--     @Quantity BIGINT
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO CustomerOrder (UserID, TableID, TotalAmount, PaymentStatus, CreatedAt, OrderStatus,MenuID,Quantity)
+--     VALUES (@UserID, @TableID, @TotalAmount, @PaymentStatus,GETDATE(), @OrderStatus,@MenuID,@Quantity);
+-- END;
+
+-- DBCC CHECKIDENT ('CustomerOrder', NORESEED);
+-- DBCC CHECKIDENT ('CustomerOrder', RESEED, 3);
+-- -- READ
+-- CREATE PROCEDURE GetOrders
+-- AS
+-- BEGIN
+--     SELECT * FROM CustomerOrder;
+-- END;
+
+-- DBCC CHECKIDENT ('Order', NORESEED);
+-- DBCC CHECKIDENT ('Order', RESEED, 3);
+
+-- exec GetOrders
+-- -- READ BY ID
+-- Create PROCEDURE GetOrderById(@OrderID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT * FROM [CustomerOrder] WHERE OrderID = @OrderID;
+-- END;
+
+-- -- UPDATE
+-- Create PROCEDURE UpdateOrder(
+--     @OrderID BIGINT,
+--     @UserID BIGINT,
+--     @TableID BIGINT,
+--     @TotalAmount DECIMAL(8, 2),
+--     @PaymentStatus NVARCHAR(255),
+--     @OrderStatus NVARCHAR(255),
+--     @MenuID BIGINT,
+--     @Quantity BIGINT
+-- )
+-- AS
+-- BEGIN
+--     UPDATE CustomerOrder
+--     SET UserID = @UserID,
+--         TableID = @TableID,
+--         TotalAmount = @TotalAmount,
+--         PaymentStatus = @PaymentStatus,
+--         OrderStatus = @OrderStatus,
+--         MenuID = @MenuID,
+--         Quantity = @Quantity
+--     WHERE OrderID = @OrderID;
+-- END;
+
+-- -- DELETE
+-- Create PROCEDURE DeleteOrder(@OrderID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM CustomerOrder WHERE OrderID = @OrderID;
+-- END;

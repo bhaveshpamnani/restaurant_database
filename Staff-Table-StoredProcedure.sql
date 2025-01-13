@@ -1,0 +1,45 @@
+-- -- CREATE
+-- CREATE PROCEDURE CreateStaff(
+--     @UserID BIGINT,
+--     @Available BIT
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO Staff (UserID, Available)
+--     VALUES (@UserID, @Available);
+-- END;
+
+-- -- READ ALL
+-- CREATE PROCEDURE GetStaffs
+-- AS
+-- BEGIN
+--     SELECT * FROM Staff;
+-- END;
+
+-- -- READ BY ID
+-- CREATE PROCEDURE GetStaffById(@StaffID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT * FROM Staff WHERE StaffID = @StaffID;
+-- END;
+
+-- -- UPDATE
+-- CREATE PROCEDURE UpdateStaff(
+--     @StaffID BIGINT,
+--     @UserID BIGINT,
+--     @Available BIT
+-- )
+-- AS
+-- BEGIN
+--     UPDATE Staff
+--     SET UserID = @UserID,
+--         Available = @Available
+--     WHERE StaffID = @StaffID;
+-- END;
+
+-- -- DELETE
+-- CREATE PROCEDURE DeleteStaff(@StaffID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM Staff WHERE StaffID = @StaffID;
+-- END;

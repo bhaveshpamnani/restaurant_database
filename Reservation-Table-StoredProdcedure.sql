@@ -1,0 +1,91 @@
+-- -- CREATE
+-- create PROCEDURE CreateReservation(
+--     @UserID BIGINT,
+--     @TableID BIGINT,
+--     @BookDate DATE,
+--     @BookTime TIME,
+--     @PersonCount BIGINT,
+--     @ReservationStatus NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO Reservation (UserID, TableID, BookDate, BookTime, PersonCount, ReservationStatus)
+--     VALUES (@UserID, @TableID, @BookDate, @BookTime, @PersonCount, @ReservationStatus);
+-- END;
+-- DBCC CHECKIDENT ('FeedBack', NORESEED);
+-- DBCC CHECKIDENT ('FeedBack', RESEED, 3);
+-- -- READ
+-- create PROCEDURE GetReservations
+-- AS
+-- BEGIN
+--     SELECT
+--     [dbo].[Reservation].ReservationID,
+--     [dbo].[Reservation].ReservationStatus,
+--     [dbo].[Reservation].PersonCount,
+--     [dbo].[Reservation].BookDate,
+--     [dbo].[Reservation].BookTime,
+--     [dbo].[DiningTable].TableID,
+--     [dbo].[User].UserID,
+--     [dbo].[User].UserName,
+--     [dbo].[User].UserEmail,
+--     [dbo].[DiningTable].TableCode,
+--     [dbo].[DiningTable].AvailabilityStatus
+--      FROM Reservation
+--      LEFT OUTER JOIN
+--      [dbo].[DiningTable] ON [dbo].[Reservation].TableID = [dbo].[DiningTable].TableID
+--      LEFT OUTER JOIN
+--      [dbo].[User] ON [dbo].[Reservation].UserID = [dbo].[User].UserID;
+-- END;
+
+-- -- READ BY ID
+-- create PROCEDURE GetReservationById(@ReservationID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT
+--     [dbo].[Reservation].ReservationID,
+--     [dbo].[Reservation].ReservationStatus,
+--     [dbo].[Reservation].PersonCount,
+--     [dbo].[Reservation].BookDate,
+--     [dbo].[Reservation].BookTime,
+--     [dbo].[DiningTable].TableID,
+--     [dbo].[User].UserID,
+--     [dbo].[User].UserName,
+--     [dbo].[User].UserEmail,
+--     [dbo].[DiningTable].TableCode,
+--     [dbo].[DiningTable].AvailabilityStatus
+--      FROM Reservation
+--      LEFT OUTER JOIN
+--      [dbo].[DiningTable] ON [dbo].[Reservation].TableID = [dbo].[DiningTable].TableID
+--      LEFT OUTER JOIN
+--      [dbo].[User] ON [dbo].[Reservation].UserID = [dbo].[User].UserID
+--      WHERE ReservationID = @ReservationID;
+-- END;
+
+-- -- -- UPDATE
+-- create PROCEDURE UpdateReservation(
+--     @ReservationID BIGINT,
+--     @UserID BIGINT,
+--     @TableID BIGINT,
+--     @BookDate DATE,
+--     @BookTime TIME,
+--     @PersonCount BIGINT,
+--     @ReservationStatus NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     UPDATE Reservation
+--     SET UserID = @UserID,
+--         TableID = @TableID,
+--         BookDate = @BookDate,
+--         BookTime = @BookTime,
+--         PersonCount = @PersonCount,
+--         ReservationStatus = @ReservationStatus
+--     WHERE ReservationID = @ReservationID;
+-- END;
+
+-- -- -- DELETE
+-- CREATE PROCEDURE DeleteReservation(@ReservationID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM Reservation WHERE ReservationID = @ReservationID;
+-- END;

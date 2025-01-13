@@ -1,0 +1,43 @@
+-- -- CREATE
+-- CREATE PROCEDURE CreateFeedbackCategory(
+--     @CategoryName NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO FeedBackCategory (CategoryName)
+--     VALUES (@CategoryName);
+-- END;
+-- DBCC CHECKIDENT ('FeedBackCategory', NORESEED);
+-- DBCC CHECKIDENT ('FeedBackCategory', RESEED, 3);
+-- -- READ ALL
+-- CREATE PROCEDURE GetFeedbackCategories
+-- AS
+-- BEGIN
+--     SELECT * FROM FeedBackCategory;
+-- END;
+
+-- READ BY ID
+-- CREATE PROCEDURE GetFeedbackCategoryById(@FeedBackCategoryID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT * FROM FeedBackCategory WHERE FeedBackCategoryID = @FeedBackCategoryID;
+-- END;
+
+-- -- UPDATE
+-- CREATE PROCEDURE UpdateFeedbackCategory(
+--     @FeedBackCategoryID BIGINT,
+--     @CategoryName NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     UPDATE FeedBackCategory
+--     SET CategoryName = @CategoryName
+--     WHERE FeedBackCategoryID = @FeedBackCategoryID;
+-- END;
+
+-- DELETE
+-- CREATE PROCEDURE DeleteFeedbackCategory(@FeedBackCategoryID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM FeedBackCategory WHERE FeedBackCategoryID = @FeedBackCategoryID;
+-- END;

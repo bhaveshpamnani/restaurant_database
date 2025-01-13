@@ -1,0 +1,42 @@
+-- -- CREATE
+-- CREATE PROCEDURE CreateUserRole(
+--     @RoleName NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     INSERT INTO UserRole (RoleName)
+--     VALUES (@RoleName);
+-- END;
+
+-- -- READ ALL
+-- CREATE PROCEDURE GetUserRoles
+-- AS
+-- BEGIN
+--     SELECT * FROM UserRole;
+-- END;
+
+-- -- READ BY ID
+-- CREATE PROCEDURE GetUserRoleById(@RoleID BIGINT)
+-- AS
+-- BEGIN
+--     SELECT * FROM UserRole WHERE RoleID = @RoleID;
+-- END;
+
+-- -- UPDATE
+-- CREATE PROCEDURE UpdateUserRole(
+--     @RoleID BIGINT,
+--     @RoleName NVARCHAR(255)
+-- )
+-- AS
+-- BEGIN
+--     UPDATE UserRole
+--     SET RoleName = @RoleName
+--     WHERE RoleID = @RoleID;
+-- END;
+
+-- -- DELETE
+-- CREATE PROCEDURE DeleteUserRole(@RoleID BIGINT)
+-- AS
+-- BEGIN
+--     DELETE FROM UserRole WHERE RoleID = @RoleID;
+-- END;
