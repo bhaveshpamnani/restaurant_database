@@ -83,3 +83,15 @@ END;
 -- BEGIN
 --     DELETE FROM [User] WHERE UserID = @UserID;
 -- END;
+
+
+-- ---===Login 
+-- CREATE PROCEDURE ValidateUser
+--     @UserEmail NVARCHAR(255),
+--     @Password NVARCHAR(255)
+-- AS
+-- BEGIN
+--     SELECT UserID, RoleID 
+--     FROM [User] 
+--     WHERE UserEmail = @UserEmail AND Password = @Password;
+-- END;
