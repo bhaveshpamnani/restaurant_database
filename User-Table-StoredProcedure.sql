@@ -14,7 +14,8 @@
 --         (@UserName, @UserEmail, @Password, @Phone, @RoleID);
 -- END;
 
--- EXEC CreateUser "bhavesh","bhavsh@gmail.com","234567890","1234567890",1
+SELECT * from [UserRole]
+EXEC CreateUser "bhavesh","bhavsh@gmail.com","234567890","1234567890",1
 
 -- DBCC CHECKIDENT ('User', NORESEED);
 -- DBCC CHECKIDENT ('User', RESEED, 3);
@@ -85,13 +86,12 @@ END;
 -- END;
 
 
--- ---===Login 
--- CREATE PROCEDURE ValidateUser
---     @UserEmail NVARCHAR(255),
---     @Password NVARCHAR(255)
+---===Login 
+-- Alter PROCEDURE ValidateUser
+--     @UserEmail NVARCHAR(255)
 -- AS
 -- BEGIN
 --     SELECT UserID, RoleID 
 --     FROM [User] 
---     WHERE UserEmail = @UserEmail AND Password = @Password;
+--     WHERE UserEmail = @UserEmail;
 -- END;
