@@ -220,3 +220,5 @@ IF NOT EXISTS (
 BEGIN
     ALTER TABLE [User] ADD CONSTRAINT user_roleID_fk FOREIGN KEY (RoleID) REFERENCES UserRole (RoleID);
 END;
+
+SELECT * from Reservation

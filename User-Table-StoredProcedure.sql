@@ -91,7 +91,11 @@ END;
 --     @UserEmail NVARCHAR(255)
 -- AS
 -- BEGIN
---     SELECT UserID, RoleID 
+--     SELECT UserID, RoleID,UserName ,Password
 --     FROM [User] 
 --     WHERE UserEmail = @UserEmail;
 -- END;
+SELECT * from Reservation
+SELECT * from DiningTable
+SELECT * from [User]
+
