@@ -3,7 +3,7 @@ INSERT INTO UserRole (RoleName)
 VALUES 
 ('Customer'),
 ('Staff');
-
+select * from UserRole
 
 --=== User Insert ===---
 INSERT INTO [User] (UserName, UserEmail, Password, Phone, RoleID)

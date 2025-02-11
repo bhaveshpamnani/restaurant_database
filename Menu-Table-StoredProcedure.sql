@@ -1,22 +1,23 @@
 -- -- CREATE
--- create PROCEDURE CreateMenu(
+-- Alter PROCEDURE CreateMenu(
 --     @CategoryID BIGINT,
 --     @DishName NVARCHAR(255),
 --     @Description NVARCHAR(255),
 --     @Price DECIMAL(8, 2),
 --     @ImgURL NVARCHAR(255),
---     @AvailabilityStatus BIT
+--     @AvailabilityStatus BIT,
+--     @Rating INT
 -- )
 -- AS
 -- BEGIN
---     INSERT INTO Menu (CategoryID, DishName, Description, Price, ImgURL, AvailabilityStatus)
---     VALUES (@CategoryID, @DishName, @Description, @Price, @ImgURL, @AvailabilityStatus);
+--     INSERT INTO Menu (CategoryID, DishName, Description, Price, ImgURL, AvailabilityStatus,Rating)
+--     VALUES (@CategoryID, @DishName, @Description, @Price, @ImgURL, @AvailabilityStatus,@Rating);
 -- END;
 
 -- DBCC CHECKIDENT ('FeedBack', NORESEED);
 -- DBCC CHECKIDENT ('FeedBack', RESEED, 3);
 -- -- READ
--- create PROCEDURE GetMenus
+-- Alter PROCEDURE GetMenus
 -- AS
 -- BEGIN
 --     SELECT 
@@ -27,7 +28,8 @@
 --     [dbo].[Menu].[Description],
 --     [dbo].[Menu].AvailabilityStatus,
 --     [dbo].[Menu].ImgURL,
---     [dbo].[Menu].Price
+--     [dbo].[Menu].Price,
+--     [dbo].[Menu].Rating
 --      FROM Menu
 --      LEFT OUTER JOIN
 --      [dbo].Category ON [dbo].[Menu].CategoryID = [dbo].[Category].CategoryID;
@@ -35,7 +37,7 @@
 -- Exec GetMenus
 
 -- -- READ BY ID
--- create PROCEDURE GetMenuById(@MenuID BIGINT)
+-- Alter PROCEDURE GetMenuById(@MenuID BIGINT)
 -- AS
 -- BEGIN
 --     SELECT 
@@ -46,7 +48,8 @@
 --     [dbo].[Menu].[Description],
 --     [dbo].[Menu].AvailabilityStatus,
 --     [dbo].[Menu].ImgURL,
---     [dbo].[Menu].Price
+--     [dbo].[Menu].Price,
+--     [dbo].[Menu].Rating
 --      FROM Menu
 --      LEFT OUTER JOIN
 --      [dbo].Category ON [dbo].[Menu].CategoryID = [dbo].[Category].CategoryID
@@ -55,14 +58,15 @@
 -- Exec GetMenuById 1
 
 -- -- UPDATE
--- create PROCEDURE UpdateMenu(
+-- Alter PROCEDURE UpdateMenu(
 --     @MenuID BIGINT,
 --     @CategoryID BIGINT,
 --     @DishName NVARCHAR(255),
 --     @Description NVARCHAR(255),
 --     @Price DECIMAL(8, 2),
 --     @ImgURL NVARCHAR(255),
---     @AvailabilityStatus BIT
+--     @AvailabilityStatus BIT,
+--     @Rating INT
 -- )
 -- AS
 -- BEGIN
@@ -72,7 +76,8 @@
 --         Description = @Description,
 --         Price = @Price,
 --         ImgURL = @ImgURL,
---         AvailabilityStatus = @AvailabilityStatus
+--         AvailabilityStatus = @AvailabilityStatus,
+--         Rating = @Rating
 --     WHERE MenuID = @MenuID;
 -- END;
 
@@ -82,3 +87,35 @@
 -- BEGIN
 --     DELETE FROM Menu WHERE MenuID = @MenuID;
 -- END;
+
+
+-- Alter PROCEDURE GetMenuByCategoryID
+--     @CategoryID INT
+-- AS
+-- BEGIN
+--     -- Select the menu items that belong to the specified category
+--     Select
+--     [dbo].[Menu].MenuID,
+--     [dbo].[Menu].DishName,
+--     [dbo].[Category].CategoryName,
+--     [dbo].[Menu].CategoryID,
+--     [dbo].[Menu].[Description],
+--     [dbo].[Menu].AvailabilityStatus,
+--     [dbo].[Menu].ImgURL,
+--     [dbo].[Menu].Price,
+--     [dbo].[Menu].Rating
+--      FROM Menu
+--      LEFT OUTER JOIN
+--      [dbo].Category ON [dbo].[Menu].CategoryID = [dbo].[Category].CategoryID
+--     WHERE 
+--         [dbo].[Menu].CategoryID = @CategoryID;
+-- END
+
+Exec GetMenuByCategoryID 6
+use Restaurant
+
+SELECT * from CustomerOrder
+SELECT * from Menu
+SELECT * from DiningTable
+Use Restaurant
+

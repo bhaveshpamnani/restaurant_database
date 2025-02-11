@@ -10,8 +10,8 @@
 --     VALUES (@Description, @UserID, @FeedBackCategoryID);
 -- END;
 
-DBCC CHECKIDENT ('CustomerOrder', NORESEED);
-DBCC CHECKIDENT ('CustomerOrder', RESEED, 3);
+-- DBCC CHECKIDENT ('CustomerOrder', NORESEED);
+-- DBCC CHECKIDENT ('CustomerOrder', RESEED, 3);
 
 -- -- READ ALL
 -- CREATE PROCEDURE GetFeedbacks

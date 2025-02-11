@@ -9,8 +9,8 @@
 --     INSERT INTO Inventory (ItemName, QuantityAvailable, QuantityWanted)
 --     VALUES (@ItemName, @QuantityAvailable, @QuantityWanted);
 -- END;
-DBCC CHECKIDENT ('Inventory', NORESEED);
-DBCC CHECKIDENT ('Inventory', RESEED, 3);
+-- DBCC CHECKIDENT ('Inventory', NORESEED);
+-- DBCC CHECKIDENT ('Inventory', RESEED, 3);
 -- READ ALL
 -- CREATE PROCEDURE GetInventories
 -- AS

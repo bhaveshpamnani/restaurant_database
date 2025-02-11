@@ -27,7 +27,7 @@
 -- DBCC CHECKIDENT ('Order', RESEED, 3);
 
 -- exec GetOrders
--- -- READ BY ID
+-- READ BY ID
 -- Create PROCEDURE GetOrderById(@OrderID BIGINT)
 -- AS
 -- BEGIN

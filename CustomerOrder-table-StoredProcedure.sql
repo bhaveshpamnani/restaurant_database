@@ -104,6 +104,5 @@
 -- AS
 -- BEGIN
 --     DELETE FROM CustomerOrder WHERE OrderID = @OrderID;
-
 --     SELECT @OrderID AS DeletedOrderID; -- Confirm the deletion
 -- END;

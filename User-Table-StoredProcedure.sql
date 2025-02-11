@@ -14,28 +14,28 @@
 --         (@UserName, @UserEmail, @Password, @Phone, @RoleID);
 -- END;
 
-SELECT * from [UserRole]
-EXEC CreateUser "bhavesh","bhavsh@gmail.com","234567890","1234567890",1
+-- SELECT * from [UserRole]
+-- EXEC CreateUser "bhavesh","bhavsh@gmail.com","234567890","1234567890",1
 
 -- DBCC CHECKIDENT ('User', NORESEED);
 -- DBCC CHECKIDENT ('User', RESEED, 3);
 
 
 -- READ
-Create PROCEDURE GetUsers
-AS
-BEGIN
-    SELECT [dbo].[User].[UserID],
-    [dbo].[User].[UserEmail],
-    [dbo].[User].[UserName],
-    [dbo].[User].[Password],
-    [dbo].[User].[Phone],
-[dbo].[User].[RoleId],
-    [dbo].[UserRole].[RoleName]
-    FROM [User] 
-    Left Outer Join 
-    [dbo].[UserRole] on [dbo].[User].[RoleID] = [dbo].[UserRole].[RoleID] ;
-END;
+-- Create PROCEDURE GetUsers
+-- AS
+-- BEGIN
+--     SELECT [dbo].[User].[UserID],
+--     [dbo].[User].[UserEmail],
+--     [dbo].[User].[UserName],
+--     [dbo].[User].[Password],
+--     [dbo].[User].[Phone],
+-- [dbo].[User].[RoleId],
+--     [dbo].[UserRole].[RoleName]
+--     FROM [User] 
+--     Left Outer Join 
+--     [dbo].[UserRole] on [dbo].[User].[RoleID] = [dbo].[UserRole].[RoleID] ;
+-- END;
 
 -- Exec GetUsers
 
@@ -87,7 +87,7 @@ END;
 
 
 ---===Login 
--- Alter PROCEDURE ValidateUser
+-- Create PROCEDURE ValidateUser
 --     @UserEmail NVARCHAR(255)
 -- AS
 -- BEGIN
@@ -95,7 +95,7 @@ END;
 --     FROM [User] 
 --     WHERE UserEmail = @UserEmail;
 -- END;
-SELECT * from Reservation
-SELECT * from DiningTable
-SELECT * from [User]
+-- SELECT * from Reservation
+-- SELECT * from DiningTable
+-- SELECT * from [User]
 

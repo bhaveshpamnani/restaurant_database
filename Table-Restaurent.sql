@@ -23,7 +23,7 @@ CREATE TABLE Menu (
     Description NVARCHAR(255) NOT NULL,
     Price DECIMAL(8, 2),
     ImgURL NVARCHAR(255) NOT NULL,
-    AvailablityStatus BIT NOT NULL
+    AvailabilityStatus BIT NOT NULL
 );
 
 CREATE TABLE DiningTable (
@@ -104,6 +104,25 @@ CREATE TABLE UserRole (
 -- ALTER TABLE CustomerOrder ADD CONSTRAINT order_userID_fk FOREIGN KEY (UserID) REFERENCES [User] (UserID);
 -- ALTER TABLE [User] ADD CONSTRAINT user_roleID_fk FOREIGN KEY (RoleID) REFERENCES UserRole (RoleID);
 
+
+CREATE TABLE Cart (
+    CartID INT IDENTITY(1,1) PRIMARY KEY,
+    MenuID  NOT NULL,
+    TableID Int NOT NULL,
+    UserID Int NOT NULL,
+);
+
+ALTER TABLE Cart ADD CONSTRAINT Cart_menu_tableID_fk FOREIGN KEY (MenuID) REFERENCES Menu (MenuID);
+ALTER TABLE Cart ADD CONSTRAINT cart_Dinning_tableID_fk FOREIGN KEY (TableID) REFERENCES DiningTable (TableID);
+ALTER TABLE Cart ADD CONSTRAINT cart_User_tableID_fk FOREIGN KEY (UserID) REFERENCES [User] (UserID);
+CREATE TABLE OrderDetails (
+    OrderDetailID INT IDENTITY(1,1) PRIMARY KEY,
+    OrderID BIGINt NOT NULL,
+    MenuID INT NOT NULL,
+    Quantity INT NOT NULL,
+    FOREIGN KEY (OrderID) REFERENCES CustomerOrder(OrderID)
+        ON DELETE CASCADE
+);
 
 
 -- Chief Table Constraints
